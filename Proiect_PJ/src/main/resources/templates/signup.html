@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe9f4;
+            font-family: Trebuchet MS, sans-serif;
+
+        }
+
+        .form-container_signup {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="name"],
+        input[type="password"] {
+          width: 100%;
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          margin-bottom: 0;
+        }
+
+        input[type="submit"] {
+            background-color: #ff0080;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .login-link {
+            margin-top: 10px;
+        }
+
+        .signup-link a:hover {
+          background-color: #ff0080;
+        }
+
+        .login-link {
+          margin-top: 20px;
+          text-align: center;
+        }
+
+        .login-link a {
+          color: #ff0080;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        .login-link a:hover {
+          text-decoration: underline;
+        }
+        </style>
+</head>
+<body>
+<div class="form-container_signup">
+    <h1>Sign Up</h1>
+    <form action="/signup" method="post" th:object="${user}">
+        <label>Nume: <input type="text" th:field="*{nume}" /></label><br>
+        <label>Utilizator (Nickname): <input type="text" th:field="*{utilizator}" /></label><br>
+        <label>Parola: <input type="text" th:field="*{parola}" /></label><br>
+        <input type="submit" value="Sign Up">
+        <div class="login-link">
+            <p><b>Ai deja un cont ? Loghează-te aici:</b></p>
+            <a href="/login">Log in</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #ffe9f4;
+  font-family: Trebuchet MS, sans-serif;
+}
+
+.form-container {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+form {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  background-color: #ff0080;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="submit"]:hover {
+  background-color: #ff0080;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-link a {
+  background-color: #ff0080;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  background-color: #ff0080;
+}
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h1>Login</h1>
+    <div th:if="${param.error}">
+        <p style="color:#ff0000;">Numele de utilizator sau parola sunt greșite.</p>
+    </div>
+    <div th:if="${param.logout}">
+        <p style="color:green;">Te-ai deconectat.</p>
+    </div>
+    <form action="/login" method="post">
+        <label for="username">Utilizator:</label>
+        <input type="text" name="username" id="username" required><br>
+        <label for="password">Parola:</label>
+        <input type="password" name="password" id="password" required><br>
+        <input type="submit" value="Login">
+    </form>
+    <div class="signup-link">
+        <p><b>Nu ai încă un cont ? Crează-ți unul aici: </b></p>
+        <a href="/signup">Sign Up</a>
+    </div>
+</div>
+</body>
+</html>
